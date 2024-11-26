@@ -1,0 +1,17 @@
+**/.DS_Store
+
+# IntelliJ
+.idea
+
+# Ignore Gradle project-specific cache directory
+.gradle
+
+# Ignore Gradle build output directory
+build
+
+# OpenAPI specs
+schema
+PaymentMethodOverview.md
+
+# SDK upstream repository
+repo
