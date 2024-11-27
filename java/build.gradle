@@ -2,12 +2,14 @@ import com.adyen.sdk.Service
 import org.openapitools.generator.gradle.plugin.tasks.GenerateTask
 
 plugins {
+    id 'java'
     id 'adyen.sdk-automation-conventions'
 }
 
 project.ext {
     generator = 'java'
 }
+
 
 def services = project.ext.services as List<Service>
 def smallServices = project.ext.smallServices as List<Service>
