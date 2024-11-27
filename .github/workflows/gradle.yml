@@ -30,7 +30,7 @@ jobs:
         java-version: '8'
         distribution: 'temurin'
     - name: Setup credentials to access private repositories
-      run: git config --global url.https://${{ secrets.MY_PAT }}@github.com/.insteadOf https://github.com/
+      run: git config --global url.https://${{ secrets.ADYEN_AUTOMATION_BOT_ACCESS_TOKEN }}@github.com/.insteadOf https://github.com/
     - name: Clone ${{ matrix.project }} repository
       uses: actions/checkout@v4
       with:
