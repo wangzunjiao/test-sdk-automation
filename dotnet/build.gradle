@@ -34,8 +34,8 @@ services.each { Service svc ->
         dependsOn "generate$svc.name"
         outputs.upToDateWhen { false }
 
-        from layout.buildDirectory.dir("services/$svc.id/src/Adyen/Model.${serviceName}")
-        into layout.projectDirectory.dir("repo/Adyen/Model/" + serviceName)
+        from layout.buildDirectory.dir("services/$svc.id/src/wangzunjiao/Model.${serviceName}")
+        into layout.projectDirectory.dir("repo/wangzunjiao/Model/" + serviceName)
     }
 
     def deployServices = tasks.register("deploy${svc.name}Services", Sync) {
@@ -44,8 +44,8 @@ services.each { Service svc ->
         dependsOn "generate$svc.name"
         outputs.upToDateWhen { false }
 
-        from layout.buildDirectory.dir("services/$svc.id/src/Adyen/Service.${serviceName}")
-        into layout.projectDirectory.dir("repo/Adyen/Service/" + serviceName)
+        from layout.buildDirectory.dir("services/$svc.id/src/wangzunjiao/Service.${serviceName}")
+        into layout.projectDirectory.dir("repo/wangzunjiao/Service/" + serviceName)
     }
 
     def deploySmallService = tasks.register("deploy${svc.name}SmallService", Copy) {
@@ -54,12 +54,12 @@ services.each { Service svc ->
         dependsOn "generate$svc.name"
         outputs.upToDateWhen { false }
 
-        from layout.buildDirectory.file("services/$svc.id/src/Adyen/Service/DefaultService.cs")
+        from layout.buildDirectory.file("services/$svc.id/src/wangzunjiao/Service/DefaultService.cs")
         rename 'DefaultService.cs', "${serviceName}Service.cs"
         filter {
             it.replace('DefaultService', "${serviceName}Service")
         }
-        into layout.projectDirectory.dir("repo/Adyen/Service")
+        into layout.projectDirectory.dir("repo/wangzunjiao/Service")
     }
 
     tasks.named(svc.id) { dependsOn deployModels, deployServices, deploySmallService }
@@ -68,20 +68,20 @@ services.each { Service svc ->
 // Tests
 tasks.named('binlookup') {
     doLast {
-        assert file("${layout.projectDirectory}/repo/Adyen/Model/BinLookup/Amount.cs").exists()
-        assert file("${layout.projectDirectory}/repo/Adyen/Service/BinLookupService.cs").exists()
+        assert file("${layout.projectDirectory}/repo/wangzunjiao/Model/BinLookup/Amount.cs").exists()
+        assert file("${layout.projectDirectory}/repo/wangzunjiao/Service/BinLookupService.cs").exists()
     }
 }
 tasks.named('checkout') {
     doLast {
-        assert file("${layout.projectDirectory}/repo/Adyen/Model/Checkout/Amount.cs").exists()
-        assert file("${layout.projectDirectory}/repo/Adyen/Service/Checkout/PaymentsService.cs").exists()
+        assert file("${layout.projectDirectory}/repo/wangzunjiao/Model/Checkout/Amount.cs").exists()
+        assert file("${layout.projectDirectory}/repo/wangzunjiao/Service/Checkout/PaymentsService.cs").exists()
     }
 }
 tasks.named('acswebhooks') {
     doLast {
-        assert file("${layout.projectDirectory}/repo/Adyen/Model/AcsWebhooks/Amount.cs").exists()
-        assert !file("${layout.projectDirectory}/repo/Adyen/Service/AcsWebhooks").exists()
-        assert !file("${layout.projectDirectory}/repo/Adyen/Service/AcsWebhooksService.cs").exists()
+        assert file("${layout.projectDirectory}/repo/wangzunjiao/Model/AcsWebhooks/Amount.cs").exists()
+        assert !file("${layout.projectDirectory}/repo/wangzunjiao/Service/AcsWebhooks").exists()
+        assert !file("${layout.projectDirectory}/repo/wangzunjiao/Service/AcsWebhooksService.cs").exists()
     }
 }

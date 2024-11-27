@@ -1,13 +1,13 @@
 # Adyen SDK Automation
 
-This is a set of Gradle build scripts to generate code for `Adyen/adyen-*-api-library` repositories. 
+This is a set of Gradle build scripts to generate code for `wangzunjiao/test-*-api-library` repositories. 
 
 To generate all services in all libraries, run:
 
 ```
 ./gradlew services
 ```
-*Note:*  Ensure that the service is in the following list: [`adyen.sdk-automation-conventions.gradle`](/buildSrc/src/main/groovy/adyen.sdk-automation-conventions.gradle).
+*Note:*  Ensure that the service is in the following list: [`test.sdk-automation-conventions.gradle`](/buildSrc/src/main/groovy/adyen.sdk-automation-conventions.gradle).
 
 For all services in a library, run:
 

@@ -44,7 +44,7 @@ services.<Service> each { Service svc ->
 
         from layout.buildDirectory.dir("services/$svc.id/openapi_client/api")
         include '*_api.py'
-        into layout.projectDirectory.dir("repo/Adyen/services/" + serviceName)
+        into layout.projectDirectory.dir("repo/wangzunjiao/services/" + serviceName)
 
         from(layout.buildDirectory.dir("services/$svc.id/api")) {
             include 'api-single.py'
@@ -61,7 +61,7 @@ services.<Service> each { Service svc ->
 
         from layout.buildDirectory.file("services/$svc.id/openapi_client/api/general_api-small.py")
         rename 'general_api-small.py', "${serviceName}.py"
-        into layout.projectDirectory.dir("repo/Adyen/services")
+        into layout.projectDirectory.dir("repo/wangzunjiao/services")
     }
 
     tasks.named(svc.id) { dependsOn deployServices, deploySmallService }
@@ -70,13 +70,13 @@ services.<Service> each { Service svc ->
 // Tests
 tasks.named('checkout') {
     doLast {
-        assert file("${layout.projectDirectory}/repo/Adyen/services/checkout/payments_api.py").exists()
-        assert file("${layout.projectDirectory}/repo/Adyen/services/checkout/__init__.py").exists()
+        assert file("${layout.projectDirectory}/repo/wangzunjiao/services/checkout/payments_api.py").exists()
+        assert file("${layout.projectDirectory}/repo/wangzunjiao/services/checkout/__init__.py").exists()
     }
 }
 tasks.named('binlookup') {
     doLast {
-        assert file("${layout.projectDirectory}/repo/Adyen/services/binlookup.py").exists()
-        assert !file("${layout.projectDirectory}/repo/Adyen/services/binlookup").exists()
+        assert file("${layout.projectDirectory}/repo/wangzunjiao/services/binlookup.py").exists()
+        assert !file("${layout.projectDirectory}/repo/wangzunjiao/services/binlookup").exists()
     }
 }

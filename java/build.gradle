@@ -33,6 +33,7 @@ smallServices.each { Service svc ->
         additionalProperties.putAll([
                 'smallServiceName': "${svc.name}Api",
         ])
+
     }
 }
 

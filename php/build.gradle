@@ -47,8 +47,8 @@ services.findAll({ !it.small }).each { Service svc ->
         // Cleanup existing non-small Models and Services before generation
         doFirst {
             logger.lifecycle("Cleaning up existing files for $svc.name")
-            delete layout.projectDirectory.dir("repo/src/Adyen/Service/$svc.name")
-            delete layout.projectDirectory.dir("repo/src/Adyen/Model/$svc.name")
+            delete layout.projectDirectory.dir("repo/src/wangzunjiao/Service/$svc.name")
+            delete layout.projectDirectory.dir("repo/src/wangzunjiao/Model/$svc.name")
         }
 
         // Set the destination directory for copied files
@@ -110,26 +110,26 @@ smallServices.each { Service svc ->
 // Tests
 tasks.named('binlookup') {
     doLast {
-        assert file("${layout.projectDirectory}/repo/src/Adyen/Model/BinLookup/Amount.php").exists()
-        assert file("${layout.projectDirectory}/repo/src/Adyen/Service/BinLookupApi.php").exists()
+        assert file("${layout.projectDirectory}/repo/src/wangzunjiao/Model/BinLookup/Amount.php").exists()
+        assert file("${layout.projectDirectory}/repo/src/wangzunjiao/Service/BinLookupApi.php").exists()
     }
 }
 tasks.named('deployAcsWebhooks', Copy) {
     doLast {
-        assert file("${layout.projectDirectory}/repo/src/Adyen/Model/AcsWebhooks/Amount.php").exists()
-        assert file("${layout.projectDirectory}/repo/src/Adyen/Model/AcsWebhooks/ObjectSerializer.php").exists()
+        assert file("${layout.projectDirectory}/repo/src/wangzunjiao/Model/AcsWebhooks/Amount.php").exists()
+        assert file("${layout.projectDirectory}/repo/src/wangzunjiao/Model/AcsWebhooks/ObjectSerializer.php").exists()
     }
 }
 tasks.named('deployCheckout') {
     doLast {
-        assert file("${layout.projectDirectory}/repo/src/Adyen/Model/Checkout/Amount.php").exists()
-        assert file("${layout.projectDirectory}/repo/src/Adyen/Service/Checkout/PaymentsApi.php").exists()
+        assert file("${layout.projectDirectory}/repo/src/wangzunjiao/Model/Checkout/Amount.php").exists()
+        assert file("${layout.projectDirectory}/repo/src/wangzunjiao/Service/Checkout/PaymentsApi.php").exists()
     }
 }
 tasks.named('payment') {
     doLast {
-        assert file("${layout.projectDirectory}/repo/src/Adyen/Model/Payments/Amount.php").exists()
-        assert file("${layout.projectDirectory}/repo/src/Adyen/Model/Payments/ObjectSerializer.php").exists()
-        assert file("${layout.projectDirectory}/repo/src/Adyen/Service/Payments/PaymentsApi.php").exists()
+        assert file("${layout.projectDirectory}/repo/src/wangzunjiao/Model/Payments/Amount.php").exists()
+        assert file("${layout.projectDirectory}/repo/src/wangzunjiao/Model/Payments/ObjectSerializer.php").exists()
+        assert file("${layout.projectDirectory}/repo/src/wangzunjiao/Service/Payments/PaymentsApi.php").exists()
     }
 }
