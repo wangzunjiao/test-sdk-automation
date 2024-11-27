@@ -3,7 +3,7 @@ name: Update SDKs
 on:
   workflow_dispatch:
   push:
-    branches: [ "master" ]
+    branches: [ "master" , "main" ]
     paths-ignore:
       - '**/README.md'
       - README.md
