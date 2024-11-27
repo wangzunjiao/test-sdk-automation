@@ -117,7 +117,7 @@ tasks.named('generateCheckout', GenerateTask) {
 
 tasks.register('cloneRepo', Exec) {
     group 'setup'
-    def uri = "https://github.com/wangzunjiao/test-java-api-library.git"
+    def uri = "https://github.com/wangzunjiao/test-$project.name-api-library.git"
     def dest = 'repo'
     description "Clone this project's repository."
     commandLine 'git', 'clone', uri, '--single-branch', dest
