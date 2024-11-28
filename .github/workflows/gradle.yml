@@ -106,8 +106,8 @@ jobs:
       with:
         path: ${{ matrix.project }}/repo
         token: ${{ secrets.ADYEN_AUTOMATION_BOT_ACCESS_TOKEN }}
-        committer: wangzunjiao.wzj@digital-engine.com
-        author: wangzunjiao.wzj@digital-engine.com
+        committer: Wang Zunjiao <wangzunjiao.wzj@digital-engine.com>
+        author: Wang Zunjiao <wangzunjiao.wzj@digital-engine.com>
         branch: sdk-automation/models
         title: ${{ steps.vars.outputs.pr_title }}
         body: ${{ steps.vars.outputs.pr_body }}
