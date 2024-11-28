@@ -13,6 +13,9 @@ repositories {
 }
 
 List<Service> services = [
+
+        new Service(name: 'Consult', version: 1),
+
         // Payments
         new Service(name: 'Checkout', version: 71),
         new Service(name: 'Payout', version: 68),
